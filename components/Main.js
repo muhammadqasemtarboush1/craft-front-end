@@ -17,9 +17,9 @@ export default function Main(){
             in planning, making, executing” and, by extension, “an occupation or trade requiring skill”. 
             Handicraft is the traditional main sector of the crafts, it is a type of work
             where useful and decorative devices are made completely by hand or by using only simple tools.
-            The term is usually applied to traditional means of making goods. 
-        </p>
+            The term is usually applied to traditional means of making goods. </p>
         </main>
+
+      
     )
 }
-

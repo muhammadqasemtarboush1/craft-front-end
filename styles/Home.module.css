@@ -1,5 +1,19 @@
-.container {
-  padding: 0 2rem;
+.footer_flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.ff{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+}
+.maingrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 400px;
+  align-items: center;
+  
 }
 
 .main {
