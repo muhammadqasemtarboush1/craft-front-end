@@ -1,18 +1,18 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { Header, Navigation, Footer , Firstpage} from '../components'
+import { Header, Navigation, Main, Footer } from '../components'
 
 export default function Home() {
   return (
-    <div >
+    <div className=''>
       <Head>
-
+        <title>Crafts</title>
         <meta name="description" content="Craftsmen website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
       <Navigation/>
-      <Firstpage/>
+      &nbsp; &nbsp;
+      <Main/>
       <Footer/>
     </div>
   )
