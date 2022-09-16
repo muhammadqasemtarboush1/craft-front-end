@@ -3,7 +3,7 @@ import { Header, Navigation, Main, Footer } from '../components'
 
 export default function Home() {
   return (
-    <div className=''>
+    <div className='bg-gray-100'>
       <Head>
         <title>Crafts</title>
         <meta name="description" content="Craftsmen website" />
