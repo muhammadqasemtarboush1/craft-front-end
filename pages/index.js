@@ -12,7 +12,7 @@ export default function Home() {
       <Header/>
       <Navigation/>
       &nbsp; &nbsp;
-      <Main/>
+      <h1 className='font-semibold text-xl px-3'> New Pieces </h1>
       <Footer/>
     </div>
   )

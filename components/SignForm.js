@@ -52,7 +52,7 @@ export default function SignForm() {
         </div>
         
         <div class="basis-1/2">
-        <input  type="checkbox" name="As a craftsmen " value="craftsmen" checked=""/>
+        <input  type="checkbox" name="As a craftsmen" value="craftmen" checked=""/>
         <label for="craftsmen"> As a craftsmen</label>
 
         </div>
