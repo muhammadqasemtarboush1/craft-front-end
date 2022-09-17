@@ -1,15 +1,14 @@
 import Image from 'next/dist/client/image'
-import craft3 from '../assets/craft3.jpg';
 
 export default function Main(){
     return (
         <main className=''>
         <div className="relative w-450 h-350 rounded-md overflow-hidden text-center">
-        <Image
+        {/* <Image
         className=''
         src={craft3}
         alt="craft"
-        />
+        /> */}
         </div>
         &nbsp; &nbsp;
         <p className='text-center font-semibold'>
