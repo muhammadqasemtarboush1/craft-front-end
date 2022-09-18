@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "next": "12.3.0",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "react-toastify": "^9.0.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.10",
