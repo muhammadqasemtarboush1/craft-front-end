@@ -71,17 +71,17 @@ export default function Products() {
 
         return (
           <>
-          <div class="max-w-lg p-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 flex flex-col justify-center items-center bg-gray-100">
-          <div class="shadow-md mx-auto bg-white justify-center items-center">
-          <div class=" border-white p-12 rounded-bl-md rounded-br-md" style={{maxWidth:"18rem"}}>
+          <div className="max-w-lg p-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 flex flex-col justify-center items-center bg-gray-100">
+          <div className="shadow-md mx-auto bg-white justify-center items-center">
+          <div className=" border-white p-12 rounded-bl-md rounded-br-md" style={{maxWidth:"18rem"}}>
           <Image loader={(e)=>myLoader(item.Image)} src="./avatar-05.png" name="Image" alt="" width="30%" height="30%" />
-            <h3 class="truncate max-w-xs text-gray-700 font-semibold" >{item.Name}</h3>
-            <h3 class="truncate max-w-xs text-gray-700 font-semibold">{item.Products_name}</h3>
-            <h3 class="truncate max-w-xs text-gray-700 font-semibold">${item.Price}</h3>
-            <p class=" truncate max-w-xs text-sm text-gray-600 hover:snap-x text-clip">{item.Description}</p>
-          <div class="info">
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold" >{item.Name}</h3>
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold">{item.Products_name}</h3>
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.Price}</h3>
+            <p className=" truncate max-w-xs text-sm text-gray-600 hover:snap-x text-clip">{item.Description}</p>
+          <div className="info">
             <a href="">Add</a>
-            <i class="fas fa-long-arrow-alt-right"></i>
+            <i className="fas fa-long-arrow-alt-right"></i>
           </div>
         </div>
         </div>
