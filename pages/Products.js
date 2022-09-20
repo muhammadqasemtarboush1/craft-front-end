@@ -2,10 +2,13 @@ import { Header, Navigation, Footer } from '../components'
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
+import axios from 'axios';
+
 const myLoader = ( src ) => {
   return src
 }
-export default function Products() {
+const url= "https://craft-herfah.herokuapp.com"
+export default function Products(props) {
   const [userInput, setUserInput] = useState([]);
   function handleUserInput(e){
     e.preventDefault();
@@ -16,15 +19,14 @@ export default function Products() {
         "Price": e.target.price.value,
         "Image": e.target.image.value
     }
-  
-    setUserInput([...userInput, inputObject])
-
+    axios.post(url, inputObject, {headers: {Authrization: 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNjIwOTE1LCJpYXQiOjE2NjM2MjA2MTUsImp0aSI6ImQ3MzEzNmYzM2JmNDRkYzhhYTg4OTViNTNkYTc1ZDFmIiwidXNlcl9pZCI6MX0.nHFnK20UYKGcsLxRdiLEzo9U7uPJ_1txXo0rBU4yO7k'}})
     }
     useEffect(()=>{
       console.log(userInput)
     },[userInput]
     
     );
+
   return (
     <div className='flex flex-col justify-center items-center bg-gray-100'>
       <Head>
@@ -59,7 +61,7 @@ export default function Products() {
           <label for="image">A picture of the product:</label>
           <input className="p-5" type="file"
           id="avatar" name="image"
-          accept="image/png, image/jpeg" required></input>
+          accept="image/png, image/jpeg"></input>
 
           <div className='relative h-32 w-32'>
             <input type="submit" className='transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 w-full p-2 font-medium text-white uppercase bg-gradient-to-b from-green-500 to-green-600 md:p-4 rounded-3xl hover:bg-white' value="Add"/>
@@ -78,7 +80,7 @@ export default function Products() {
             <h3 className="truncate max-w-xs text-gray-700 font-semibold" >{item.Name}</h3>
             <h3 className="truncate max-w-xs text-gray-700 font-semibold">{item.Products_name}</h3>
             <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.Price}</h3>
-            <p className=" truncate max-w-xs text-sm text-gray-600 hover:snap-x text-clip">{item.Description}</p>
+            <p className="truncate max-w-xs text-sm text-gray-600 text-clip">{item.Description}</p>
           <div className="info">
             <a href="">Add</a>
             <i className="fas fa-long-arrow-alt-right"></i>
