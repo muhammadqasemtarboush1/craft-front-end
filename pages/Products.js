@@ -1,18 +1,22 @@
 import { Header, Navigation, Footer } from '../components'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 import axios from 'axios';
+import { AuthContext } from '../contexts/Auth';
+
 
 const myLoader = ( src ) => {
   return src
 }
 
 const url= "https://craft-herfah.herokuapp.com"
-
-
 export default function Products() {
-  function myFunction() {
+  const [Products, setProducts] = useState([])
+  const [userInput, setUserInput] = useState([]);
+  const auth = useContext(AuthContext)
+
+  function readMore() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
       x.style.display = "block";
@@ -21,9 +25,9 @@ export default function Products() {
     }
   }
 
-  const [userInput, setUserInput] = useState([]);
-  function handleUserInput(e){
+  async function handleUserInput(e){
     e.preventDefault();
+    try{
     const inputObject = {
         "Name": e.target.name.value,
         "Products_name": e.target.name_of.value,
@@ -31,13 +35,20 @@ export default function Products() {
         "Price": e.target.price.value,
         "Image": e.target.image.value
     }
-    axios.post(url, inputObject, {headers: {Authrization: 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNjIwOTE1LCJpYXQiOjE2NjM2MjA2MTUsImp0aSI6ImQ3MzEzNmYzM2JmNDRkYzhhYTg4OTViNTNkYTc1ZDFmIiwidXNlcl9pZCI6MX0.nHFnK20UYKGcsLxRdiLEzo9U7uPJ_1txXo0rBU4yO7k'}})
+   await axios.post(url, inputObject, {headers: {Authrization: 'Bearer ' +   auth.tokens.access}})
+  } catch(e){
+    console.log(e)
+  }
     }
+    const get_data=async ()=>{
+      let response = await axios.get(url, {headers: {Authrization: 'Bearer ' +   auth.tokens.access}})
+      setProducts(response.data)
+      console.log(Products) 
+     }
     useEffect(()=>{
-      console.log(userInput)
-    },[userInput]
-    
-    );
+      console.log(auth.tokens)
+      get_data()
+    },[userInput]);
 
   return (
     <div className='flex flex-col justify-center items-center bg-gray-100'>
@@ -81,7 +92,7 @@ export default function Products() {
       </form>
       <div className='grid grid-cols-5 grid-flow-row gap-2'>
       {
-      userInput.map(item => {
+      Products.map(item => {
 
         return (
           <>
@@ -89,18 +100,15 @@ export default function Products() {
           <div className="shadow-md mx-auto bg-white justify-center items-center">
           <div className=" border-white p-12 rounded-bl-md rounded-br-md" style={{maxWidth:"18rem"}}>
           <Image loader={(e)=>myLoader(item.Image)} src="./avatar-05.png" name="Image" alt="" width="30%" height="30%" />
-            <h3 className="truncate max-w-xs text-gray-700 font-semibold" >{item.Name}</h3>
-            <h3 className="truncate max-w-xs text-gray-700 font-semibold">{item.Products_name}</h3>
-            <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.Price}</h3>            
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold" >{item.created_by.username}</h3>
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold">{item.title}</h3>
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.price}</h3>            
             <div id="myDIV">
-            <p className=" truncate max-w-xs text-sm text-gray-600 hover:snap-x text-clip">{item.Description}</p>
+            <p className=" truncate max-w-xs text-base text-gray-700 hover:snap-x text-clip">{item.description}</p>
             </div>
-
-            <button onclick={myFunction()}>More</button>
-
-
+            <button onclick={readMore} className='text-xs text-gray-600'>Read more</button>
           <div className="info">
-            <a href="">Add</a>
+            <button className='bg-green-500 hover:bg-green-700 text-white font-semibold py-1 px-2 rounded-full text-sm'>Add to cart</button>
             <i className="fas fa-long-arrow-alt-right"></i>
           </div>
         </div>
