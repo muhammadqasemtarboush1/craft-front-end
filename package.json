@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "next": "12.3.0",
     "react-responsive-carousel": "^3.2.23",
     "react-toastify": "^9.0.8"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.10",
+    "autoprefixer": "^10.4.11",
     "eslint": "8.23.0",
     "eslint-config-next": "12.3.0",
     "postcss": "^8.4.16",

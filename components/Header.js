@@ -1,4 +1,4 @@
-
+import Link from "next/link"
 export default function Header(){
     return (
         <header className='flex justify-between items-center bg-amber-900 p-1 px-3 w-screen'>
@@ -7,12 +7,16 @@ export default function Header(){
             <h1 className='text-4xl pl-50 text-slate-50 ml-3'>Crafts</h1>
             </div>
             <div className="mr-90 h-7 rounded flex flex-row">
+                <Link href="/Login">
                 <button className="float-right font-bold bg-slate-50 rounded w-20 h-full hover:text-stone-400">
                     Log in
                 </button>
+                </Link>
+                <Link href="/Signup">
                 <button className="ml-3 float-right mr-2 font-bold bg-slate-50 rounded w-20 h-full hover:text-stone-400">
                     Sign up
                 </button>
+                </Link>
             </div>
         </header>
     )
