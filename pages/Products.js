@@ -7,8 +7,20 @@ import axios from 'axios';
 const myLoader = ( src ) => {
   return src
 }
+
 const url= "https://craft-herfah.herokuapp.com"
-export default function Products(props) {
+
+
+export default function Products() {
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
   const [userInput, setUserInput] = useState([]);
   function handleUserInput(e){
     e.preventDefault();
@@ -79,8 +91,14 @@ export default function Products(props) {
           <Image loader={(e)=>myLoader(item.Image)} src="./avatar-05.png" name="Image" alt="" width="30%" height="30%" />
             <h3 className="truncate max-w-xs text-gray-700 font-semibold" >{item.Name}</h3>
             <h3 className="truncate max-w-xs text-gray-700 font-semibold">{item.Products_name}</h3>
-            <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.Price}</h3>
-            <p className="truncate max-w-xs text-sm text-gray-600 text-clip">{item.Description}</p>
+            <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.Price}</h3>            
+            <div id="myDIV">
+            <p className=" truncate max-w-xs text-sm text-gray-600 hover:snap-x text-clip">{item.Description}</p>
+            </div>
+
+            <button onclick={myFunction()}>More</button>
+
+
           <div className="info">
             <a href="">Add</a>
             <i className="fas fa-long-arrow-alt-right"></i>
