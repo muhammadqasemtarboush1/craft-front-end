@@ -11,12 +11,12 @@ export default function LoginForm() {
 
     const { login } = useContext(AuthContext);
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e) { 
+        
         e.preventDefault();
-        console.log({
-            email,
-            password
-        });
+        try{
+
+        
        
         await login({
             email,
@@ -24,7 +24,10 @@ export default function LoginForm() {
             
         });
         await router.push("/")
-        console.log(AuthContext)
+    } catch(e){
+        console.log(e)
+    }
+       
     }
 
     function handleemail(e) {
