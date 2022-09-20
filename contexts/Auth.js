@@ -4,7 +4,7 @@
 
 
 
-import { createContext, useState } from "react";
+import { createContext, useState ,useEffect} from "react";
 import axios from 'axios';
 // 1.1  create the context 
 export const AuthContext = createContext();
@@ -20,15 +20,19 @@ export function AuthWrapper({ children }) {
     })
     // create login function that will send request to the server and recive a token, I need to update the state
     async function login(userInfo) {
-        const url = "https://craft-herfah.herokuapp.com/";
+        
+        const url = "https://craft-herfah.herokuapp.com/api/token/";
         const res = await axios.post(url, userInfo);
         
         setGlobalState({
             tokens: res.data,
+
             login,
         })
-    }
+        
 
+    }
+    useEffect(()=>{console.log(globalState.tokens)},[globalState.tokens])
     return (
         <>
             <AuthContext.Provider value={globalState}>
