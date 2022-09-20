@@ -56,6 +56,8 @@ export default function About(){
             Nowadays online shopping is taking over the world, so those who cannot afford having a physical store somewhere can take advantage of that having an online shop. The main purpose of creating the website is to show the world that there is a lot of talented people who can do fascinating things but can't afford opening a shop or creating a website, so this can provide these people with an opportunity to do exactly what they have always dreamed of but could not afford. 
             At the same time, we will offer events for the craftsmen and the customers to come, see, and inspect the products and the pieces in real life as they wish.
         </p>
+        <br></br>
+        <br/>
         <Footer/> 
         
         </>

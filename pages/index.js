@@ -14,6 +14,7 @@ export default function Home() {
       <Navigation/>
       &nbsp; &nbsp;
       <h1 className='font-semibold text-xl px-3'> New arrivals </h1>
+      <br></br>
       <Footer/>
     </div>
   )
