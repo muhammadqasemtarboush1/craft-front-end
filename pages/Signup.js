@@ -10,7 +10,7 @@ export default function Signup(){
         
         
         <SignForm/>
-        
+        <br></br>
         <Footer/>
         </>
     )

@@ -23,6 +23,7 @@ export default function Navigation(){
             <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white  hover:text-orange-300"> Events </a>
         </Link> 
         &nbsp; &nbsp;   
+        
   </nav>
     )
 }

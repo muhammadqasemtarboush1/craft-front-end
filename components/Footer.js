@@ -5,7 +5,7 @@ import whatsapp from '../pages/images/whatsapp.png'
 
 export default function Footer(){
     return (
-      <footer className="w-screen h-10 p-6 bg-stone-700 border-t border-gray-200 shadow flex items-center justify-between dark:bg-gray-800 dark:border-gray-600">
+      <footer className="w-screen h-10 p-6 bg-stone-700 border-t border-gray-200 shadow flex items-center justify-between dark:bg-gray-800 dark:border-gray-600 fixed left-0 bottom-0 ">
       <span className="text-l text-white text-center">© 2022 <span>Craft</span>. All Rights Reserved.
       </span>
         <div>

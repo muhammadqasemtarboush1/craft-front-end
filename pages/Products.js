@@ -61,7 +61,7 @@ export default function Products() {
       <form onSubmit={handleUserInput} className='flex-auto px-4 my -32 max-w-3xl mx-auto space-y-6'>
         
           <label className='font-semibold'>Craftmen name: </label>
-          <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="text" name='name' required/>
+          <input  className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="text" name='name' required/>
         
           <br></br>
           
@@ -119,6 +119,7 @@ export default function Products() {
       })
        }
      </div>
+     <br></br>
       <Footer/>
     </div>
   )
