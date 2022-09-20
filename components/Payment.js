@@ -1,4 +1,4 @@
-import { Header, Navigation, Footer } from '../components'
+import { Header, Navigation, Footer } from '.'
 import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

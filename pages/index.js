@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Header, Navigation, Main, Footer } from '../components'
 
+
 export default function Home() {
   return (
     <div className='bg-gray-100'>
@@ -12,7 +13,7 @@ export default function Home() {
       <Header/>
       <Navigation/>
       &nbsp; &nbsp;
-      <h1 className='font-semibold text-xl px-3'> New Pieces </h1>
+      <h1 className='font-semibold text-xl px-3'> New arrivals </h1>
       <Footer/>
     </div>
   )

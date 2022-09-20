@@ -22,10 +22,7 @@ export default function Navigation(){
         <Link href="/Events">
             <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white  hover:text-orange-300" target="_blank"> Events </a>
         </Link> 
-        &nbsp; &nbsp; 
-        <Link href="/Payment">
-            <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white  hover:text-orange-300" target="_blank"> Payment </a>
-        </Link>     
+        &nbsp; &nbsp;     
   </nav>
     )
 }
