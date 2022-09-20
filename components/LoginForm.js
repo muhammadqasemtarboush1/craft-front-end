@@ -1,34 +1,39 @@
 import { useState } from 'react';
-import { AuthContext ,AuthWrapper } from '../contexts/Auth';
+import { AuthContext } from '../contexts/Auth';
 import { useContext } from 'react';
+import { useRouter } from 'next/router'
 
 export default function LoginForm() {
     // const [userInfo, setUserInfo] = useState({});
     const [password, setPassword] = useState('');
-    const [username, setUserName] = useState('');
+    const [email, setemail] = useState('');
+    const router = useRouter()
 
-    const  login  = AuthWrapper;
+    const { login } = useContext(AuthContext);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         console.log({
-            username,
+            email,
             password
         });
        
-        login({
-            username,
+        await login({
+            email,
             password
+            
         });
+        await router.push("/")
         console.log(AuthContext)
     }
 
-    function handleUserName(e) {
-        setUserName(e.target.value);
+    function handleemail(e) {
+        setemail(e.target.value);
     }
     function handleUserPassword(e) {
         setPassword(e.target.value)
     }
+    
 
 
     return (
@@ -38,8 +43,8 @@ export default function LoginForm() {
   <div class="flex flex-col justify-center items-center bg-gray-100" >
     <form class=" flex-auto px-4 my -32 max -w -3xl mx -auto space-y-6 " action="/send-data-here" method="post">
     
-    <label for="name">Username:</label>
-    <input onChange={(e)=>handleUserName(e)} class="border border - gray - 400 block py - 2 px - 4 w - full rounded focus : outline - none" type="text" id="name" name="name" required />
+    <label for="name">email:</label>
+    <input onChange={(e)=>handleemail(e)} class="border border - gray - 400 block py - 2 px - 4 w - full rounded focus : outline - none" type="text" id="name" name="name" required />
     <br/>
     
     <label for="pswrd">Password:</label>
