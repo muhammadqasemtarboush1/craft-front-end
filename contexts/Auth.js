@@ -6,6 +6,8 @@
 
 import { createContext, useState ,useEffect} from "react";
 import axios from 'axios';
+import { useRouter } from 'next/router'
+
 // 1.1  create the context 
 export const AuthContext = createContext();
 // 1.2  create the context wrapper // provider
@@ -13,6 +15,7 @@ export const AuthContext = createContext();
 
 export function AuthWrapper({ children }) {
     // I need tokens and login funciton to be global
+    const router = useRouter()
     const [globalState, setGlobalState] = useState({
         tokens: null,
         // login : login ,
@@ -32,7 +35,7 @@ export function AuthWrapper({ children }) {
         
 
     }
-    useEffect(()=>{console.log(globalState.tokens)},[globalState.tokens])
+    useEffect(()=>{!globalState.tokens && router.push('/Login') },[globalState.tokens])
     return (
         <>
             <AuthContext.Provider value={globalState}>
