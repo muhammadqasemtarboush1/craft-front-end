@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 export default function SignForm() {
+
+  const [craftsman, setCraftsman] = useState(false)
+
+  // const handleCraftsman = () => {
+  //   setCraftsman(true)
+  // }
+
+
   function register(e){
     e.preventDefault()
    console.log(e.target)
@@ -45,22 +53,12 @@ export default function SignForm() {
     title="Password should be digits (0 to 9) or alphabets (a to z)."
     />
     <br/> */}
+    {craftsman && 
+     (
+      <div>
 
-    <label for="Description"> Description</label>
-    <textarea className="border border - gray - 400 block py - 2 px - 4 w - full rounded focus : outline - none" id="myTextarea"></textarea>
-    <div className="flex flex-col">
-
-        <div className="basis-1/2">
-        <input  type="checkbox" name="As a user" value="User" checked=""/>
-        <label for="User"> As a user</label>
-        </div>
-        
-        <div className="basis-1/2">
-        <input  type="checkbox" name="As a craftsmen" value="craftmen" checked=""/>
-        <label for="craftsmen"> As a craftsmen</label>
-
-        </div>
-    </div>
+    <label  for="Description"> Description</label>
+    <textarea className="mb-4 border border - gray - 400 block py - 2 px - 4 w - full rounded focus : outline - none" id="myTextarea"></textarea>
 
     <label for="image">Choose a profile picture:</label>
 
@@ -68,6 +66,23 @@ export default function SignForm() {
        id="avatar" name="avatar"
        accept="image/png, image/jpeg"></input>
     
+      </div>
+    )
+    }
+
+    <div className="flex flex-col">
+
+        {/* <div className="basis-1/2">
+        <input  type="checkbox" name="As a user" value="User" checked=""/>
+        <label for="User"> As a user</label>
+        </div> */}
+        
+        <div className="basis-1/2">
+        <input onChange={() => setCraftsman(!craftsman)}  type="checkbox" name="As a craftsmen" value="craftmen" checked={craftsman}/>
+        <label for="craftsmen"> As a craftsmen</label>
+
+        </div>
+    </div>
     <div className="relative h-32 w-32 ...">
     <button className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 w-full p-2 font-medium text-white uppercase bg-gradient-to-b from-gray-700 to-green-600 md:p-4 rounded-3xl hover:bg-white" type="submit">Sigin</button>
     </div>
