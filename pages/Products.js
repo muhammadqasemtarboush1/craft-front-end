@@ -1,4 +1,4 @@
-import { Header, Navigation, Footer } from '../components'
+import { Header, Navigation, Footer,LoginForm } from '../components'
 import { useEffect, useState, useContext } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
@@ -67,7 +67,7 @@ export default function Products() {
       </Head>
       <Navigation/>
       &nbsp; &nbsp;
-
+      {auth.tokens?(<>
       <form onSubmit={handleUserInput} enctype='multipart/form-data' className='px-4 my -32 max-w-3xl space-y-6'>
 
 
@@ -145,6 +145,10 @@ export default function Products() {
       })
        }
      </div>
+     </>)
+     :
+     <LoginForm/>
+      }
      <br></br>
       <Footer/>
     </div>

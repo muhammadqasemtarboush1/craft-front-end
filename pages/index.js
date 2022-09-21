@@ -37,7 +37,7 @@ export default function Home() {
       </Head>
       <Navigation/>
       &nbsp; &nbsp;
-     {auth.tokens?
+     {auth.tokens?(<> 
       <h1 className='text-center text-2xl font-bold'> OUR PRODUCTS: </h1>
       <div className='grid grid-cols-2 grid-flow-row gap-28 px-44 text-center'>
       {
@@ -72,7 +72,7 @@ export default function Home() {
        }
 
      </div>
-     </>
+     </>)
      :
      <LoginForm/>
     }

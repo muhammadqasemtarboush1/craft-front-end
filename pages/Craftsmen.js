@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Navigation, Footer } from '../components'
+import { Header, Navigation, Footer,LoginForm } from '../components'
 import Image from 'next/image';
 import Head from 'next/head'
 import craftwoman from '../pages/images/craftwoman.png'
@@ -27,6 +27,7 @@ export default function Craftsmen() {
 <div className="flex flex-col items-center justify-center bg-gray-100">
 
 <Navigation/>
+{auth.tokens?(<>
 {/* <div class="max-w-xl text-center bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto">
         <a href="#">
         <img class="rounded-t-lg" src={Craftsman.image} alt=""/>
@@ -63,7 +64,11 @@ export default function Craftsmen() {
      })
       }
       </div>
-
+      </>) 
+     :
+     <LoginForm/>
+  
+}
  <br/>
  <Footer/>   
 </div>
