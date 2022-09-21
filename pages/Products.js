@@ -29,19 +29,35 @@ export default function Products() {
     e.preventDefault();
     try{
     const inputObject = {
-        "Name": e.target.name.value,
-        "Products_name": e.target.name_of.value,
-        "Description": e.target.desc.value,
-        "Price": e.target.price.value,
-        "Image": e.target.image.value
+        "created_by": e.target.created_by.value,
+        "title": e.target.title.value,
+        "description": e.target.description.value,
+        "price": e.target.price.value,
+        "category": e.target.category.value,
+        "stock": e.target.stock.value,
+        "image": e.target.image.files[0]
     }
-   await axios.post(url, inputObject, {headers: {Authrization: 'Bearer ' +   auth.tokens.access}})
+    console.log(1111111111111, e.target.image.files[0])
+    console.log(222222222222, auth.tokens.access)
+  //   const inputObject = {
+  //     "created_by": 1,
+  //     "title": 'omar',
+  //     "description": 'test',
+  //     "price": 4,
+  //     "category": 1,
+  //     "Stock": 7,
+  //     "image": e.target.image.value
+  // }
+   await axios.post(url, inputObject, 
+    {headers: {Authorization: 'Bearer ' +   auth.tokens.access, 'content-type': 'multipart/form-data'} })
   } catch(e){
+  //  await axios.post(url, inputObject, {headers: {Authorization: 'Bearer ' +   auth.tokens.access}})
+  // } catch(e){
     console.log(e)
   }
     }
     const get_data=async ()=>{
-      let response = await axios.get(url, {headers: {Authrization: 'Bearer ' +   auth.tokens.access}})
+      let response = await axios.get(url, {headers: {Authorization: 'Bearer ' +   auth.tokens.access}})
       setProducts(response.data)
       console.log(Products) 
      }
@@ -58,26 +74,36 @@ export default function Products() {
       <Header/>
       <Navigation/>
       &nbsp; &nbsp;
-      <form onSubmit={handleUserInput} className='flex-auto px-4 my -32 max-w-3xl mx-auto space-y-6'>
+      <form onSubmit={handleUserInput} enctype='multipart/form-data' className='flex-auto px-4 my -32 max-w-3xl mx-auto space-y-6'>
         
           <label className='font-semibold'>Craftmen name: </label>
-          <input  className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="text" name='name' required/>
+          <input  className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="number" name='created_by' required/>
         
           <br></br>
           
             <label className='font-semibold'>Name of the product: </label>
-            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="text" name='name_of' required/>
+            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="text" name='title' required/>
           
           <br></br>
           
             <label className='font-semibold'>Description: </label>
             {/* <input className='h-50 w-70' type="text" name='desc'/> */}
-            <textarea className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' rows="6" cols="60" name="desc" required/>
+            <textarea className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' rows="6" cols="60" name="description" required/>
           
           <br></br>
           
             <label className='font-semibold'>Price: </label>
-            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="text" name='price' size="4" required/>
+            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="number" name='price' size="4" required/>
+          
+          <br></br>
+
+            <label className='font-semibold'>category: </label>
+            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="number" name='category' size="4" required/>
+          
+          <br></br>
+
+            <label className='font-semibold'>stock: </label>
+            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="number" name='stock' size="4" required/>
           
           <br></br>
 
