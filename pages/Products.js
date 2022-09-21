@@ -6,10 +6,6 @@ import axios from 'axios';
 import { AuthContext } from '../contexts/Auth';
 
 
-const myLoader = ( src ) => {
-  return src
-}
-
 const url= "https://craft-herfah.herokuapp.com"
 export default function Products() {
   const [Products, setProducts] = useState([])
@@ -37,8 +33,6 @@ export default function Products() {
         "stock": e.target.stock.value,
         "image": e.target.image.files[0]
     }
-    console.log(1111111111111, e.target.image.files[0])
-    console.log(222222222222, auth.tokens.access)
   //   const inputObject = {
   //     "created_by": 1,
   //     "title": 'omar',
@@ -48,8 +42,10 @@ export default function Products() {
   //     "Stock": 7,
   //     "image": e.target.image.value
   // }
+    console.log(inputObject)
    await axios.post(url, inputObject, 
     {headers: {Authorization: 'Bearer ' +   auth.tokens.access, 'content-type': 'multipart/form-data'} })
+    setProducts([...inputObject,Products])
   } catch(e){
   //  await axios.post(url, inputObject, {headers: {Authorization: 'Bearer ' +   auth.tokens.access}})
   // } catch(e){
@@ -63,7 +59,7 @@ export default function Products() {
      }
     useEffect(()=>{
       console.log(auth.tokens)
-      get_data()
+      auth.tokens && get_data()
     },[userInput]);
 
   return (
@@ -98,7 +94,7 @@ export default function Products() {
           <br></br>
 
             <label className='font-semibold'>category: </label>
-            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="number" name='category' size="4" required/>
+            <input className='border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none' type="number" name='category' required/>
           
           <br></br>
 
@@ -125,7 +121,7 @@ export default function Products() {
           <div className="max-w-lg p-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 flex flex-col justify-center items-center bg-gray-100">
           <div className="shadow-md mx-auto bg-white justify-center items-center">
           <div className=" border-white p-12 rounded-bl-md rounded-br-md" style={{maxWidth:"18rem"}}>
-          <Image loader={(e)=>myLoader(item.Image)} src="./avatar-05.png" name="Image" alt="" width="30%" height="30%" />
+          <img src={item.image} name="Image" alt="" width="30%" height="30%" />
             <h3 className="truncate max-w-xs text-gray-700 font-semibold" >{item.created_by.username}</h3>
             <h3 className="truncate max-w-xs text-gray-700 font-semibold">{item.title}</h3>
             <h3 className="truncate max-w-xs text-gray-700 font-semibold">${item.price}</h3>            
