@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 import { AuthContext } from '../contexts/Auth'
 import axios from 'axios';
 import {useContext, useState, useEffect} from 'react'
-
+import moment from 'moment'
 const url= "https://craft-herfah.herokuapp.com/api/events"
 
 export default function Events(){
@@ -48,8 +48,8 @@ export default function Events(){
               <h3 className=" text-center text-2xl text-gray-900 font-bold text-orange-600 uppercase" >{item.title}</h3>
               <br/>
             
-              <h3 className=" text-basic text-gray-900 font-semibold">{item.start_time}</h3>
-              <h3 className=" text-basic text-gray-900 font-semibold">{item.end_time}</h3>
+              <h3 className=" text-basic text-gray-900 font-semibold"> {moment(item.start_time).format("MMMM Do YYYY, h:mm:ss a") }</h3>
+              <h3 className=" text-basic text-gray-900 font-semibold">{moment(item.end_time).format("MMMM Do YYYY, h:mm:ss a") }</h3>
               <br/>
               <p className="text-justify flex flex-col item-center justify-center">{item.description}</p>  
        </div>
