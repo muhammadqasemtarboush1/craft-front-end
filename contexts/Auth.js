@@ -45,7 +45,7 @@ export function AuthWrapper({ children }) {
   }
 
   useEffect(() => {
-    if (cookies.tokens.access) {
+    if (cookies.tokens && cookies.tokens.access) {
       setGlobalState((prev) => {
         return {
           ...prev,
