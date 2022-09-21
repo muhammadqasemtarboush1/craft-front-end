@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head'
-import { Header, Navigation, Footer } from '../components'
+import { Header, Navigation, Footer ,LoginForm} from '../components'
 import Image from 'next/image';
 import styles from '../styles/Home.module.css'
 import { AuthContext } from '../contexts/Auth'
@@ -35,7 +35,7 @@ export default function Events(){
      <br/>
      <br/>
      <br/>
-     
+     {auth.tokens?(<> 
      <div className='grid grid-cols-3 grid-flow-row gap-28 px-10 text-center'>
      {
      Events.map(item => {
@@ -64,7 +64,10 @@ export default function Events(){
    </div> 
     
 
-    
+    </>)
+    :
+    <LoginForm/>
+}
      <br></br>
      <Footer/>
      </div>
