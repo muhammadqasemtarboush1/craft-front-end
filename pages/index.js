@@ -38,12 +38,12 @@ export default function Home() {
       <Navigation/>
       &nbsp; &nbsp;
      {auth.tokens?
+        <>
       <h1 className='text-center text-2xl font-bold'> OUR PRODUCTS: </h1>
       <div className='grid grid-cols-2 grid-flow-row gap-28 px-44 text-center'>
       {
       Products.map(item => {
         return (
-          <>
           <div className="max-w-lg p-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 flex flex-col justify-center items-center bg-gray-100">
           <div className="shadow-md mx-auto bg-white justify-center items-center">
           <div className=" border-white p-12 rounded-bl-md rounded-br-md">
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         </div>
         </div>
-        </>
+        
       )
       })
        }

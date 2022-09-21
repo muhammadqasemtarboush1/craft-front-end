@@ -138,7 +138,7 @@ export default function SignForm() {
       <div>
 
     <label  for="Description"> Description</label>
-    <textarea className="mb-4 border border - gray - 400 block py - 2 px - 4 w - full rounded focus : outline - none" name="description" id="myTextarea" value=""></textarea>
+    <textarea className="mb-4 border border - gray - 400 block py - 2 px - 4 w - full rounded focus : outline - none" name="description" id="myTextarea" ></textarea>
 
     <label for="image">Choose a profile picture:</label>
 
