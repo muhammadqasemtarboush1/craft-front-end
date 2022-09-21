@@ -21,7 +21,7 @@ export function AuthWrapper({ children }) {
     login,
     logout,
   });
-
+  
   function logout ()  {
     setCookie("tokens", null);
     setGlobalState({
