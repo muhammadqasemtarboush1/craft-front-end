@@ -10,7 +10,6 @@ export default function Events(){
      <Head>
         <title>Events page</title>
      </Head>
-     <Header/>
      <Navigation/>
      <div className= {styles.ff}>   
      <div className={styles.maingrid}>
