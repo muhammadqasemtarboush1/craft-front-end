@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import { Header, Navigation, Footer } from '../components'
+
+import { Header, Navigation, Main, Footer, LoginForm } from '../components'
+
 import { AuthContext } from '../contexts/Auth'
 import {useContext, useState, useEffect} from 'react'
 import axios from 'axios';
@@ -12,14 +14,19 @@ export default function Home() {
   const auth = useContext(AuthContext)
 
   const get_data=async ()=>{
-    let response = await axios.get(url, {headers: {Authorization: 'Bearer ' +   auth.tokens.access}})
-    setProducts(response.data)
-    console.log(Products) 
+    try{
+      
+      let response = await axios.get(url, {headers: {Authorization: 'Bearer ' +   auth.tokens.access}})
+      setProducts(response.data)
+    }catch{
+      auth.logout()
+    }
    }
    useEffect(()=>{
-    console.log(auth.tokens)
     auth.tokens && get_data()
+
   },[]);
+
 
   return ( 
     <div className='bg-gray-100'>
@@ -28,9 +35,9 @@ export default function Home() {
         <meta name="description" content="Craftsmen website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
       <Navigation/>
       &nbsp; &nbsp;
+     {auth.tokens?
       <h1 className='text-center text-2xl font-bold'> OUR PRODUCTS: </h1>
       <div className='grid grid-cols-2 grid-flow-row gap-28 px-44 text-center'>
       {
@@ -63,9 +70,16 @@ export default function Home() {
       )
       })
        }
+
      </div>
+     </>
+     :
+     <LoginForm/>
+    }
       <br></br>
       <Footer/>
     </div>
   )
 }
+
+

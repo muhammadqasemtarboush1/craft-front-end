@@ -5,7 +5,6 @@ import SignForm from "../components/SignForm";
 export default function Signup(){
     return (
         <>
-        <Header/>
         <Navigation/>
         
         

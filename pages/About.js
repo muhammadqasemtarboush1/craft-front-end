@@ -12,7 +12,6 @@ export default function About(){
         <Head>
         <title>About Page</title>
         </Head>
-        <Header/>
         <Navigation/>
         &nbsp; &nbsp;
         {/* <div className="text-center">
