@@ -36,7 +36,7 @@ export default function Info() {
         <meta name="description" content="Craftsmen website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
+      
       <Navigation/>
       <br></br>
       {/* <div className='grid grid-cols grid-flow-row gap-28 px-44 text-center'>

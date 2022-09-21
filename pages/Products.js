@@ -1,4 +1,4 @@
-import { Header, Navigation, Footer } from '../components'
+import { Header, Navigation, Footer,LoginForm } from '../components'
 import { useEffect, useState, useContext } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
@@ -81,7 +81,12 @@ export default function Products() {
       <Navigation />
       &nbsp; &nbsp;
 
+       {auth.tokens?(<>
       <div className='grid grid-cols-2 grid-flow-row gap-2'>
+
+     
+      <form onSubmit={handleUserInput} enctype='multipart/form-data' className='px-4 my -32 max-w-3xl space-y-6'>
+
 
         {
           Products.map(item => {
@@ -159,10 +164,25 @@ export default function Products() {
           <div className='text-center h-32 w-98'>
             <input type="submit" className='transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 p-4 font-medium text-white uppercase bg-gradient-to-b from-green-500 to-green-600 md:p-6 rounded-3xl hover:bg-white' value="Add" />
           </div>
+
         </form>
-      </div>
-      <br></br>
-      <Footer />
+     
+
+        </div>
+        </div>
+        </div>
+        </>
+      )
+      })
+       }
+     </div>
+     </>)
+     :
+     <LoginForm/>
+      }
+     <br></br>
+      <Footer/>
+
     </div>
   )
 }
