@@ -1,29 +1,34 @@
 import Link from "next/link"
 
+
 export default function Navigation(){
     return(
-        <nav className='shadow-md box-content h-7 border-none w-screen py-2 bg-orange-400 text-xl font-bold text-center'>
+        <nav className='box-content w-screen py-2 text-xl font-bold text-center bg-orange-400 border-none shadow-md h-7'>
         <Link href="/">
-            <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white hover:text-orange-300"> Home </a>
+            <a className="w-20 h-20 p-2 px-3 py-1 text-white border-none hover:text-orange-300"> Home </a>
         </Link>  
         &nbsp; &nbsp;   
         <Link href="/About">
-            <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white hover:text-orange-300"> About </a>
+            <a className="w-20 h-20 p-2 px-3 py-1 text-white border-none hover:text-orange-300"> About </a>
         </Link> 
         &nbsp; &nbsp;  
         <Link href="/Craftsmen">
-            <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white hover:text-orange-300"> Craftsmen </a>
+            <a className="w-20 h-20 p-2 px-3 py-1 text-white border-none hover:text-orange-300"> Craftsmen </a>
         </Link> 
         &nbsp; &nbsp;
         <Link href="/Products">
-            <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white hover:text-orange-300"> Products </a>
+            <a className="w-20 h-20 p-2 px-3 py-1 text-white border-none hover:text-orange-300"> Products </a>
         </Link> 
         &nbsp; &nbsp;
         <Link href="/Events">
-            <a className="h-20 w-20 p-2 border-none py-1 px-3 text-white  hover:text-orange-300"> Events </a>
+            <a className="w-20 h-20 p-2 px-3 py-1 text-white border-none hover:text-orange-300"> Events </a>
         </Link> 
+        <Link href='/Cart'>
+            <a className="w-20 h-20 p-2 px-3 py-1 text-white border-none hover:text-orange-300"> Cart </a>
+        </Link> 
+
         &nbsp; &nbsp;   
-        
+
   </nav>
     )
 }
