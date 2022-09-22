@@ -28,8 +28,8 @@ export default function Header(){
                 </>
               ):  
               <button  onClick={()=>auth.logout()} className="float-right w-20 h-full ml-3 mr-2 font-bold rounded bg-slate-50 hover:text-stone-400">
-                  Log out
-              </button>
+              Log out
+          </button>
              }
                
             </div>
